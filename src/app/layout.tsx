@@ -2,7 +2,8 @@
 import { Inter } from "next/font/google";
 import { Grid } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { lightTheme } from "../themes";
+import { theme } from "../themes";
+import Header from "../components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider theme={lightTheme}>
-          <Grid container>
-            <Grid item>{children}</Grid>
+        <ThemeProvider theme={theme}>
+          <Grid container md={12} justifyContent="center">
+            <Grid item justifyContent="center" alignItems="center">
+              <Header />
+            </Grid>
+            <Grid item md={12} justifyContent="center" alignItems="center">{children}</Grid>
           </Grid>
         </ThemeProvider>
       </body>
